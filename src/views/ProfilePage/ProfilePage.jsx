@@ -29,8 +29,13 @@ import work2 from "assets/img/examples/clem-onojeghuo.jpg";
 import work3 from "assets/img/examples/cynthia-del-rio.jpg";
 import work4 from "assets/img/examples/mariya-georgieva.jpg";
 import work5 from "assets/img/examples/clem-onojegaw.jpg";
+import rails from "../../assets/img/rails.png"
+import htmlFive from "../../assets/img/html5.png"
+import cssThree from "../../assets/img/css3.png"
+
 
 import profilePageStyle from "assets/jss/material-kit-react/views/profilePage.jsx";
+import { Autorenew } from "@material-ui/icons";
 
 class ProfilePage extends React.Component {
   render() {
@@ -40,6 +45,18 @@ class ProfilePage extends React.Component {
       classes.imgRoundedCircle,
       classes.imgFluid
     );
+    const imgStyle = { 
+      width: "48px",
+      height: "auto",
+      paddingLeft: "2px",
+      paddingRight: "2px",
+      paddingBottom: "10px"
+    }
+    const centerStack = {
+      textAlign: "center",
+      padding: "2%"
+    }
+
     const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
     return (
       <div>
@@ -76,6 +93,9 @@ class ProfilePage extends React.Component {
                       <Button justIcon link className={classes.margin5}>
                         <i className={"fab fa-twitter"} />
                       </Button>
+                      <Button justIcon link className={classes.margin5}>
+                        <i className={"fab fa-youtube"} />
+                      </Button>
                     </div>
                   </div>
                 </GridItem>
@@ -85,6 +105,19 @@ class ProfilePage extends React.Component {
                   Full Stack Software Engineer, with a passion for building applications that provide brilliant user
                   experiences. I have found working on collaborative projects extremely rewarding, and love seeing ideas from different perspectives come together, to build creative unique applications.{" "}
                 </p>
+              </div>
+              <div style={centerStack} >
+                <GridContainer justify="center">
+                  <GridItem xs={12} sm={12} md={6}> 
+                      <img style={imgStyle} src="https://img.icons8.com/color/48/000000/javascript.png" />
+                      <img style={imgStyle} src="https://img.icons8.com/color/48/000000/nodejs.png" />
+                      <img style={imgStyle} src="https://img.icons8.com/ios/50/000000/react-native-filled.png" />
+                      <img style={imgStyle} src="https://img.icons8.com/office/80/000000/ruby-programming-language.png" />
+                      <img style={imgStyle} src={rails} />
+                      <img style={imgStyle} src={htmlFive} />
+                      <img style={imgStyle} src={cssThree} />                 
+                  </GridItem>
+                </GridContainer>
               </div>
               <GridContainer justify="center">
                 <GridItem xs={12} sm={12} md={8} className={classes.navWrapper}>
