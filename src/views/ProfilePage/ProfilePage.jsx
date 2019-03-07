@@ -4,9 +4,10 @@ import classNames from "classnames";
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
 // @material-ui/icons
-import Camera from "@material-ui/icons/Camera";
-import Palette from "@material-ui/icons/Palette";
-import Favorite from "@material-ui/icons/Favorite";
+import ContactMail from "@material-ui/icons/ContactMail";
+import Code from "@material-ui/icons/Code";
+import textsms from "@material-ui/icons/Textsms";
+import Popover from "@material-ui/core/Popover"
 // core components
 import Header from "components/Header/Header.jsx";
 import Footer from "components/Footer/Footer.jsx";
@@ -16,6 +17,7 @@ import GridItem from "components/Grid/GridItem.jsx";
 import HeaderLinks from "components/Header/HeaderLinks.jsx";
 import NavPills from "components/NavPills/NavPills.jsx";
 import Parallax from "components/Parallax/Parallax.jsx";
+import Card from "components/Card/Card.jsx"
 
 import profile from "assets/img/faces/christian.jpg";
 
@@ -33,11 +35,23 @@ import rails from "../../assets/img/rails.png"
 import htmlFive from "../../assets/img/html5.png"
 import cssThree from "../../assets/img/css3.png"
 
+import Carousel from "../Components/Sections/SectionCarousel"
+
+
 
 import profilePageStyle from "assets/jss/material-kit-react/views/profilePage.jsx";
 import { Autorenew } from "@material-ui/icons";
 
 class ProfilePage extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      mouseOver: false,
+
+    }
+  }
+
+
   render() {
     const { classes, ...rest } = this.props;
     const imageClasses = classNames(
@@ -54,10 +68,19 @@ class ProfilePage extends React.Component {
     }
     const centerStack = {
       textAlign: "center",
-      padding: "2%"
+    }
+    const styles = {
+      card: {
+        maxWidth: 345,
+      },
+      media: {
+  
+        objectFit: 'cover',
+      },
     }
 
-    const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
+    const navImageClasses = classNames(classes.imgRounded, classes.imgGallery)
+    
     return (
       <div>
         <Header
@@ -106,60 +129,50 @@ class ProfilePage extends React.Component {
                   experiences. I have found working on collaborative projects extremely rewarding, and love seeing ideas from different perspectives come together, to build creative unique applications.{" "}
                 </p>
               </div>
-              <div style={centerStack} >
-                <GridContainer justify="center">
-                  <GridItem xs={12} sm={12} md={6}> 
-                      <img style={imgStyle} src="https://img.icons8.com/color/48/000000/javascript.png" />
-                      <img style={imgStyle} src="https://img.icons8.com/color/48/000000/nodejs.png" />
-                      <img style={imgStyle} src="https://img.icons8.com/ios/50/000000/react-native-filled.png" />
-                      <img style={imgStyle} src="https://img.icons8.com/office/80/000000/ruby-programming-language.png" />
-                      <img style={imgStyle} src={rails} />
-                      <img style={imgStyle} src={htmlFive} />
-                      <img style={imgStyle} src={cssThree} />                 
-                  </GridItem>
-                </GridContainer>
+              <div onMouseOut={() => this.setState({ onMouseOver: false })}>
+   
+                <div style={centerStack} onMouseOver={() => this.setState({ onMouseOver: true })} > 
+                    <h6>Current Stack</h6>
+                  <GridContainer justify="center">
+                    <GridItem xs={12} sm={12} md={6}> 
+                        <img style={imgStyle} src="https://img.icons8.com/color/48/000000/javascript.png" />
+                        <img style={imgStyle} src="https://img.icons8.com/color/48/000000/nodejs.png" />
+                        <img style={imgStyle} src="https://img.icons8.com/ios/50/000000/react-native-filled.png" />
+                        <img style={imgStyle} src="https://img.icons8.com/office/80/000000/ruby-programming-language.png" />
+                        <img style={imgStyle} src={rails} />
+                        <img style={imgStyle} src={htmlFive} />
+                        <img style={imgStyle} src={cssThree} />                 
+                    </GridItem>
+                  </GridContainer>
+                  {this.state.onMouseOver &&
+                    <div>
+                      <p>HTML5/CSS3, JavaScript, Node.JS, React, Redux, Express,Ruby, Ruby on Rails</p>
+                    </div>}
+              </div>
               </div>
               <GridContainer justify="center">
                 <GridItem xs={12} sm={12} md={8} className={classes.navWrapper}>
                   <NavPills
                     alignCenter
-                    color="primary"
+                    color="rose"
                     tabs={[
                       {
-                        tabButton: "Studio",
-                        tabIcon: Camera,
+                        tabButton: "Projects",
+                        tabIcon: Code,
                         tabContent: (
-                          <GridContainer justify="center">
-                            <GridItem xs={12} sm={12} md={4}>
-                              <img
-                                alt="..."
-                                src={studio1}
-                                className={navImageClasses}
-                              />
-                              <img
-                                alt="..."
-                                src={studio2}
-                                className={navImageClasses}
-                              />
-                            </GridItem>
-                            <GridItem xs={12} sm={12} md={4}>
-                              <img
-                                alt="..."
-                                src={studio5}
-                                className={navImageClasses}
-                              />
-                              <img
-                                alt="..."
-                                src={studio4}
-                                className={navImageClasses}
-                              />
-                            </GridItem>
+                          <GridContainer 
+                            alignItems="top"
+                            justify="center"
+                            >
+                           
+                              <Carousel/>
+                       
                           </GridContainer>
                         )
                       },
                       {
-                        tabButton: "Work",
-                        tabIcon: Palette,
+                        tabButton: "Blog",
+                        tabIcon: textsms,
                         tabContent: (
                           <GridContainer justify="center">
                             <GridItem xs={12} sm={12} md={4}>
@@ -195,8 +208,8 @@ class ProfilePage extends React.Component {
                         )
                       },
                       {
-                        tabButton: "Favorite",
-                        tabIcon: Favorite,
+                        tabButton: "Contact Me",
+                        tabIcon: ContactMail,
                         tabContent: (
                           <GridContainer justify="center">
                             <GridItem xs={12} sm={12} md={4}>
