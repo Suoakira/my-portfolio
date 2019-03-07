@@ -16,9 +16,8 @@ import GridContainer from "components/Grid/GridContainer.jsx";
 import GridItem from "components/Grid/GridItem.jsx";
 import HeaderLinks from "components/Header/HeaderLinks.jsx";
 import NavPills from "components/NavPills/NavPills.jsx";
-import Parallax from "components/Parallax/Parallax.jsx";
-import Card from "components/Card/Card.jsx"
 
+import Parallax from "components/Parallax/Parallax.jsx"
 import profile from "assets/img/faces/christian.jpg";
 
 import studio1 from "assets/img/examples/studio-1.jpg";
@@ -37,20 +36,38 @@ import cssThree from "../../assets/img/css3.png"
 
 import Carousel from "../Components/Sections/SectionCarousel"
 
+// blog card blogdata
+import BlogCard from "./BlogCard.js"
+import blogData from "../../assets/blogData"
+
+
+
+
+import Grid from '@material-ui/core/Grid';
+import FormLabel from '@material-ui/core/FormLabel';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import Radio from '@material-ui/core/Radio';
+import Paper from '@material-ui/core/Paper';
+
 
 
 import profilePageStyle from "assets/jss/material-kit-react/views/profilePage.jsx";
-import { Autorenew } from "@material-ui/icons";
 
 class ProfilePage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       mouseOver: false,
-
+      spacing: 16
     }
   }
 
+  handleChange = key => (event, value) => {
+    this.setState({
+      [key]: value,
+    });
+  }
 
   render() {
     const { classes, ...rest } = this.props;
@@ -78,6 +95,24 @@ class ProfilePage extends React.Component {
         objectFit: 'cover',
       },
     }
+
+    const blog = {
+      position: "relative",
+      width: "50%",
+      height: "Auto", 
+      borderRadius: "10px"
+    }
+
+    const blogText = {
+      color: "white",
+      position: "absolute",
+      top: "0px",
+      left: "0",
+      width: "100%",
+    }
+
+    const { spacing } = this.state
+    
 
     const navImageClasses = classNames(classes.imgRounded, classes.imgGallery)
     
@@ -146,7 +181,7 @@ class ProfilePage extends React.Component {
                   </GridContainer>
                   {this.state.onMouseOver &&
                     <div>
-                      <p>HTML5/CSS3, JavaScript, Node.JS, React, Redux, Express,Ruby, Ruby on Rails</p>
+                      <p>HTML5/CSS3, JavaScript, Node.JS, React, Redux, Express, Ruby, Ruby on Rails</p>
                     </div>}
               </div>
               </div>
@@ -157,54 +192,37 @@ class ProfilePage extends React.Component {
                     color="rose"
                     tabs={[
                       {
-                        tabButton: "Projects",
+                        tabButton: "Portfolio",
                         tabIcon: Code,
                         tabContent: (
                           <GridContainer 
-                            alignItems="top"
                             justify="center"
                             >
-                           
-                              <Carousel/>
-                       
+                  
+                              <Carousel />
+                  
+                              
                           </GridContainer>
                         )
                       },
                       {
-                        tabButton: "Blog",
+                        tabButton: "Recent Blog's",
                         tabIcon: textsms,
                         tabContent: (
+
+                          <div style={{padding: "5px;"}}>
                           <GridContainer justify="center">
-                            <GridItem xs={12} sm={12} md={4}>
-                              <img
-                                alt="..."
-                                src={work1}
-                                className={navImageClasses}
-                              />
-                              <img
-                                alt="..."
-                                src={work2}
-                                className={navImageClasses}
-                              />
-                              <img
-                                alt="..."
-                                src={work3}
-                                className={navImageClasses}
-                              />
-                            </GridItem>
-                            <GridItem xs={12} sm={12} md={4}>
-                              <img
-                                alt="..."
-                                src={work4}
-                                className={navImageClasses}
-                              />
-                              <img
-                                alt="..."
-                                src={work5}
-                                className={navImageClasses}
-                              />
-                            </GridItem>
+                            <Grid item xs={12}>
+                              <Grid container className={classes.demo} justify="center" spacing={Number(spacing)}>
+                                  {blogData.map( (blog, key) => (
+                                  <Grid key={key} item>
+                                    <BlogCard blog={blog}/>
+                                  </Grid>
+                                ))}
+                              </Grid>
+                            </Grid>        
                           </GridContainer>
+                          </div>
                         )
                       },
                       {
@@ -213,11 +231,13 @@ class ProfilePage extends React.Component {
                         tabContent: (
                           <GridContainer justify="center">
                             <GridItem xs={12} sm={12} md={4}>
+                          
                               <img
                                 alt="..."
                                 src={work4}
                                 className={navImageClasses}
                               />
+                    
                               <img
                                 alt="..."
                                 src={studio3}

@@ -47,19 +47,17 @@ class SectionCarousel extends React.Component {
     }
 
     const dimImg = { 
-      filter: "brightness(70%) blur(1px)",
+      filter: "brightness(60%) blur(1px)",
 
     }
     
-
-
     return (
       <div className={classes.section}>
         <div className={classes.container}>
           <GridContainer>
             <GridItem xs={12} sm={12} md={8} xs={12} className={classes.marginAuto}>
               <Card carousel>
-                <Carousel {...settings}>
+                <Carousel {...settings} >
                   <div>
                     <img
                       src={image1}
@@ -127,7 +125,7 @@ class SectionCarousel extends React.Component {
                       alt="Third slide"
                       className="slick-image"
                     />
-                    <div className="slick-caption">
+                
                       <div className="slick-caption">
                         <h6>
                           <b>JavaStyles - (design and outfit)</b>
@@ -148,9 +146,9 @@ class SectionCarousel extends React.Component {
                         </div>
                         </Button>
                         <h6><b>Vanilla JavaScript, Ruby/Ruby on Rails, Semantic UI</b></h6>
+                        </div>
                       </div>
-                      </div>
-                    </div>
+      
           
                 </Carousel>
               </Card>
