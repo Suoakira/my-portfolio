@@ -198,7 +198,7 @@ class ProfilePage extends React.Component {
                   </div>
               </div>
               <GridContainer justify="center">
-                <GridItem xs={12} sm={12} md={8} className={classes.navWrapper}>
+                <GridItem xs={12} sm={12} md={10} className={classes.navWrapper}>
                   <NavPills
                     alignCenter
                     color="rose"
@@ -208,7 +208,7 @@ class ProfilePage extends React.Component {
                         tabIcon: Code,
                         tabContent: (
                           <GridContainer justify="center">
-                            <GridItem>
+                            <GridItem xs={12} sm={12} md={12} l={12} xl={12}>
                               <Carousel classes={classes} />
                             </GridItem>
                           </GridContainer>
