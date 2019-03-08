@@ -193,7 +193,7 @@ class ProfilePage extends React.Component {
                     </div>}
 
               </div>
-                <div onClick={() => this.openLink("https://flatironschool.com")}className={classes.description}>
+                <div style={{ cursor: "pointer"}} onClick={() => this.openLink("https://flatironschool.com")}className={classes.description}>
                       <h6><b style={{ color: "blue" }}>//</b> Flatiron School Full Stack Developer Graduate</h6>
                   </div>
               </div>
