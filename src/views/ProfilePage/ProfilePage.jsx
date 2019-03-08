@@ -25,7 +25,7 @@ import htmlFive from "../../assets/img/html5.png"
 import cssThree from "../../assets/img/css3.png"
 
 import Carousel from "../Components/Sections/SectionCarousel"
-
+//net
 // blog card blogdata
 import BlogCard from "./BlogCard.js"
 import blogData from "../../assets/blogData"
