@@ -65,6 +65,7 @@ class NavPills extends React.Component {
             [classes.pillsWithIcons]: prop.tabIcon !== undefined
           });
           return (
+
             <Tab
               label={prop.tabButton}
               key={key}
@@ -76,7 +77,8 @@ class NavPills extends React.Component {
                 selected: classes[color]
               }}
             />
-          );
+       
+          )
         })}
       </Tabs>
     );

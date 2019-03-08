@@ -16,20 +16,10 @@ import GridContainer from "components/Grid/GridContainer.jsx";
 import GridItem from "components/Grid/GridItem.jsx";
 import HeaderLinks from "components/Header/HeaderLinks.jsx";
 import NavPills from "components/NavPills/NavPills.jsx";
-
+import CustomInput from "../../components/CustomInput/CustomInput.jsx"
+import Formsy from 'formsy-react'
 import Parallax from "components/Parallax/Parallax.jsx"
-import profile from "assets/img/faces/christian.jpg";
 
-import studio1 from "assets/img/examples/studio-1.jpg";
-import studio2 from "assets/img/examples/studio-2.jpg";
-import studio3 from "assets/img/examples/studio-3.jpg";
-import studio4 from "assets/img/examples/studio-4.jpg";
-import studio5 from "assets/img/examples/studio-5.jpg";
-import work1 from "assets/img/examples/olu-eletu.jpg";
-import work2 from "assets/img/examples/clem-onojeghuo.jpg";
-import work3 from "assets/img/examples/cynthia-del-rio.jpg";
-import work4 from "assets/img/examples/mariya-georgieva.jpg";
-import work5 from "assets/img/examples/clem-onojegaw.jpg";
 import rails from "../../assets/img/rails.png"
 import htmlFive from "../../assets/img/html5.png"
 import cssThree from "../../assets/img/css3.png"
@@ -39,20 +29,25 @@ import Carousel from "../Components/Sections/SectionCarousel"
 // blog card blogdata
 import BlogCard from "./BlogCard.js"
 import blogData from "../../assets/blogData"
+import LongLink from "./longLink"
 
+import InputAdornment from "@material-ui/core/InputAdornment";
+import Icon from "@material-ui/core/Icon";
+// @material-ui/icons
+import Email from "@material-ui/icons/Email";
+import People from "@material-ui/icons/People";
+// core components
 
-
-
+import Card from "components/Card/Card.jsx";
+import CardBody from "components/Card/CardBody.jsx";
 import Grid from '@material-ui/core/Grid';
-import FormLabel from '@material-ui/core/FormLabel';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import RadioGroup from '@material-ui/core/RadioGroup';
-import Radio from '@material-ui/core/Radio';
-import Paper from '@material-ui/core/Paper';
-
-
 
 import profilePageStyle from "assets/jss/material-kit-react/views/profilePage.jsx";
+
+// social media links
+const youTube = "https://www.youtube.com/channel/UCW5qleMnKYAmWO_Bc_z2Dkw"
+const gitHub = "https://github.com/suoakira"
+const medium = "https://medium.com/@steves0089"
 
 class ProfilePage extends React.Component {
   constructor(props) {
@@ -67,6 +62,10 @@ class ProfilePage extends React.Component {
     this.setState({
       [key]: value,
     });
+  }
+
+  openLink = (url) => {
+    return window.open(url, '_blank')
   }
 
   render() {
@@ -111,10 +110,22 @@ class ProfilePage extends React.Component {
       width: "100%",
     }
 
+    const iconBlue = {
+      color: "#3A6588"
+    }
+
+    const emailStyle = {
+      color: "white",
+      backgroundColor: "#e91d62",
+      borderRadius: "4px",
+      textAlign: "center",
+      padding: "1%"
+    }
+
     const { spacing } = this.state
     
 
-    const navImageClasses = classNames(classes.imgRounded, classes.imgGallery)
+    const navImageClasses = classNames(classes.imgFluid, classes.imgGallery)
     
     return (
       <div>
@@ -137,22 +148,19 @@ class ProfilePage extends React.Component {
                 <GridItem xs={12} sm={12} md={6}>
                   <div className={classes.profile}>
                     <div>
-                      <img src={profile} alt="..." className={imageClasses} />
+                      <img src={LongLink.longLink} alt="..." className={imageClasses} />
                     </div>
                     <div className={classes.name}>
                       <h3 className={classes.title}>Stephen Courtier</h3>
                       <h6>Full Stack Software Engineer</h6>
-                      <Button justIcon link className={classes.margin5}>
-                        <i className={"fab fa-github"} />
+                      <Button onClick={() => this.openLink(gitHub)} justIcon link className={classes.margin5}>
+                        <i style={iconBlue} className={"fab fa-github"} />
                       </Button>
-                      <Button justIcon link className={classes.margin5}>
-                        <i className={"fab fa-medium"} />
+                      <Button onClick={() => this.openLink(medium)} justIcon link className={classes.margin5}>
+                        <i style={iconBlue} className={"fab fa-medium"} />
                       </Button>
-                      <Button justIcon link className={classes.margin5}>
-                        <i className={"fab fa-twitter"} />
-                      </Button>
-                      <Button justIcon link className={classes.margin5}>
-                        <i className={"fab fa-youtube"} />
+                      <Button onClick={() => this.openLink(youTube)} justIcon link className={classes.margin5}>
+                        <i style={iconBlue} className={"fab fa-youtube"} />
                       </Button>
                     </div>
                   </div>
@@ -183,7 +191,11 @@ class ProfilePage extends React.Component {
                     <div>
                       <p>HTML5/CSS3, JavaScript, Node.JS, React, Redux, Express, Ruby, Ruby on Rails</p>
                     </div>}
+
               </div>
+                <div onClick={() => this.openLink("https://flatironschool.com")}className={classes.description}>
+                      <h6><b style={{ color: "blue" }}>//</b> Flatiron School Full Stack Developer Graduate</h6>
+                  </div>
               </div>
               <GridContainer justify="center">
                 <GridItem xs={12} sm={12} md={8} className={classes.navWrapper}>
@@ -195,14 +207,12 @@ class ProfilePage extends React.Component {
                         tabButton: "Portfolio",
                         tabIcon: Code,
                         tabContent: (
-                          <GridContainer 
-                            justify="center"
-                            >
-                  
+
+                            <GridContainer justify="center">
+                           
                               <Carousel />
-                  
-                              
-                          </GridContainer>
+                        
+                            </GridContainer>
                         )
                       },
                       {
@@ -230,36 +240,17 @@ class ProfilePage extends React.Component {
                         tabIcon: ContactMail,
                         tabContent: (
                           <GridContainer justify="center">
-                            <GridItem xs={12} sm={12} md={4}>
-                          
-                              <img
-                                alt="..."
-                                src={work4}
-                                className={navImageClasses}
-                              />
-                    
-                              <img
-                                alt="..."
-                                src={studio3}
-                                className={navImageClasses}
-                              />
-                            </GridItem>
-                            <GridItem xs={12} sm={12} md={4}>
-                              <img
-                                alt="..."
-                                src={work2}
-                                className={navImageClasses}
-                              />
-                              <img
-                                alt="..."
-                                src={work1}
-                                className={navImageClasses}
-                              />
-                              <img
-                                alt="..."
-                                src={studio1}
-                                className={navImageClasses}
-                              />
+                            <GridItem xs={12}>
+                 
+                              <i style={emailStyle} class="material-icons">
+                                email
+                              </i><h6 style={{paddingLeft: "2%"}}>Steves0089@gmail.com</h6>
+                              <br></br>
+                              <i style={emailStyle} class="material-icons">
+                                phone
+                              </i><h6>07541884367</h6>
+                            
+
                             </GridItem>
                           </GridContainer>
                         )

@@ -25,7 +25,23 @@ import AddIcon from '@material-ui/icons/Add';
 import DeleteIcon from '@material-ui/icons/Delete';
 import NavigationIcon from '@material-ui/icons/Navigation'
 
+const kisDemo = "https://www.youtube.com/watch?v=ZGGx5CuUhpk"
+const kisFe = "https://github.com/Suoakira/keep-it-simple"
+const kisBe = "https://github.com/Suoakira/keep-it-simple-server"
+
+const woeDemo = "https://www.youtube.com/watch?v=7ESBy5lD7vE"
+const woeGh = "https://github.com/joarnie/mod-4-trivia-game"
+
+const jsDemo = "https://www.youtube.com/watch?v=f2BmaNaXvgY"
+const jsFe = "https://github.com/Suoakira/javastyles-front-end"
+const jsBe = "https://github.com/Suoakira/javastyles_api"
+
 class SectionCarousel extends React.Component {
+
+  openLink = (url) => {
+    return window.open(url, '_blank')
+  }
+
   render() {
     const { classes } = this.props;
     const settings = {
@@ -69,17 +85,17 @@ class SectionCarousel extends React.Component {
                       <h6>
                       <b>Keep It Simple - (savings app)</b>
                       </h6>
-                      <Button>                      
+                      <Button onClick={() => this.openLink(kisDemo)}>                      
                         <div style={buttonStyle}>
                           <i className={"fab fa-youtube"} /> Video Demo
                         </div>
                     </Button>
-                      <Button>
+                      <Button onClick={() => this.openLink(kisFe)}>
                         <div style={buttonStyle}>
                           <i className={"fab fa-github"} /> Front-End
                         </div>
                       </Button>
-                      <Button>
+                      <Button onClick={() => this.openLink(kisBe)}>
                         <div style={buttonStyle}>
                           <i className={"fab fa-github"} /> Back-End
                         </div>
@@ -99,19 +115,14 @@ class SectionCarousel extends React.Component {
                       <h6>
                         <b>Where on Earth - (trivia game)</b>
                       </h6>
-                      <Button>
+                      <Button onClick={() => this.openLink(woeDemo)}>
                         <div style={buttonStyle}>
                           <i className={"fab fa-youtube"} /> Video Demo
                         </div>
                       </Button>
-                      <Button>
+                      <Button onClick={() => this.openLink(woeGh)}>
                         <div style={buttonStyle}>
-                          <i className={"fab fa-github"} /> Front-End
-                        </div>
-                      </Button>
-                      <Button>
-                        <div style={buttonStyle}>
-                          <i className={"fab fa-github"} /> Back-End
+                          <i className={"fab fa-github"} /> GitHub FE|BE
                         </div>
                       </Button>
                       <h6><b>JS/React, Ruby/Ruby on Rails, Semantic UI</b></h6>
@@ -130,17 +141,17 @@ class SectionCarousel extends React.Component {
                         <h6>
                           <b>JavaStyles - (design and outfit)</b>
                         </h6>
-                        <Button>
+                      <Button onClick={() => this.openLink(jsDemo)}>
                           <div style={buttonStyle}>
                             <i className={"fab fa-youtube"} /> Video Demo
                         </div>
                         </Button>
-                        <Button>
+                      <Button onClick={() => this.openLink(jsFe)}>
                           <div style={buttonStyle}>
                             <i className={"fab fa-github"} /> Front-End
                         </div>
                         </Button>
-                        <Button>
+                      <Button onClick={() => this.openLink(jsBe)}>
                           <div style={buttonStyle}>
                             <i className={"fab fa-github"} /> Back-End
                         </div>
