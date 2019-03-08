@@ -4,9 +4,10 @@ import classNames from "classnames";
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
 // @material-ui/icons
-import Camera from "@material-ui/icons/Camera";
-import Palette from "@material-ui/icons/Palette";
-import Favorite from "@material-ui/icons/Favorite";
+import ContactMail from "@material-ui/icons/ContactMail";
+import Code from "@material-ui/icons/Code";
+import textsms from "@material-ui/icons/Textsms";
+import Popover from "@material-ui/core/Popover"
 // core components
 import Header from "components/Header/Header.jsx";
 import Footer from "components/Footer/Footer.jsx";
@@ -15,29 +16,58 @@ import GridContainer from "components/Grid/GridContainer.jsx";
 import GridItem from "components/Grid/GridItem.jsx";
 import HeaderLinks from "components/Header/HeaderLinks.jsx";
 import NavPills from "components/NavPills/NavPills.jsx";
-import Parallax from "components/Parallax/Parallax.jsx";
+import CustomInput from "../../components/CustomInput/CustomInput.jsx"
+import Formsy from 'formsy-react'
+import Parallax from "components/Parallax/Parallax.jsx"
 
-import profile from "assets/img/faces/christian.jpg";
-
-import studio1 from "assets/img/examples/studio-1.jpg";
-import studio2 from "assets/img/examples/studio-2.jpg";
-import studio3 from "assets/img/examples/studio-3.jpg";
-import studio4 from "assets/img/examples/studio-4.jpg";
-import studio5 from "assets/img/examples/studio-5.jpg";
-import work1 from "assets/img/examples/olu-eletu.jpg";
-import work2 from "assets/img/examples/clem-onojeghuo.jpg";
-import work3 from "assets/img/examples/cynthia-del-rio.jpg";
-import work4 from "assets/img/examples/mariya-georgieva.jpg";
-import work5 from "assets/img/examples/clem-onojegaw.jpg";
 import rails from "../../assets/img/rails.png"
 import htmlFive from "../../assets/img/html5.png"
 import cssThree from "../../assets/img/css3.png"
 
+import Carousel from "../Components/Sections/SectionCarousel"
+
+// blog card blogdata
+import BlogCard from "./BlogCard.js"
+import blogData from "../../assets/blogData"
+import LongLink from "./longLink"
+
+import InputAdornment from "@material-ui/core/InputAdornment";
+import Icon from "@material-ui/core/Icon";
+// @material-ui/icons
+import Email from "@material-ui/icons/Email";
+import People from "@material-ui/icons/People";
+// core components
+
+import Card from "components/Card/Card.jsx";
+import CardBody from "components/Card/CardBody.jsx";
+import Grid from '@material-ui/core/Grid';
 
 import profilePageStyle from "assets/jss/material-kit-react/views/profilePage.jsx";
-import { Autorenew } from "@material-ui/icons";
+
+// social media links
+const youTube = "https://www.youtube.com/channel/UCW5qleMnKYAmWO_Bc_z2Dkw"
+const gitHub = "https://github.com/suoakira"
+const medium = "https://medium.com/@steves0089"
 
 class ProfilePage extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      mouseOver: false,
+      spacing: 16
+    }
+  }
+
+  handleChange = key => (event, value) => {
+    this.setState({
+      [key]: value,
+    });
+  }
+
+  openLink = (url) => {
+    return window.open(url, '_blank')
+  }
+
   render() {
     const { classes, ...rest } = this.props;
     const imageClasses = classNames(
@@ -54,10 +84,49 @@ class ProfilePage extends React.Component {
     }
     const centerStack = {
       textAlign: "center",
-      padding: "2%"
+    }
+    const styles = {
+      card: {
+        maxWidth: 345,
+      },
+      media: {
+  
+        objectFit: 'cover',
+      },
     }
 
-    const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
+    const blog = {
+      position: "relative",
+      width: "50%",
+      height: "Auto", 
+      borderRadius: "10px"
+    }
+
+    const blogText = {
+      color: "white",
+      position: "absolute",
+      top: "0px",
+      left: "0",
+      width: "100%",
+    }
+
+    const iconBlue = {
+      color: "#3A6588"
+    }
+
+    const emailStyle = {
+      color: "white",
+      backgroundColor: "#e91d62",
+      borderRadius: "4px",
+      textAlign: "center",
+      padding: "1%"
+    }
+
+    const { spacing } = this.state
+    
+
+    const navImageClasses = classNames(classes.imgFluid, classes.imgGallery)
+    
     return (
       <div>
         <Header
@@ -79,22 +148,19 @@ class ProfilePage extends React.Component {
                 <GridItem xs={12} sm={12} md={6}>
                   <div className={classes.profile}>
                     <div>
-                      <img src={profile} alt="..." className={imageClasses} />
+                      <img src={LongLink.longLink} alt="..." className={imageClasses} />
                     </div>
                     <div className={classes.name}>
                       <h3 className={classes.title}>Stephen Courtier</h3>
                       <h6>Full Stack Software Engineer</h6>
-                      <Button justIcon link className={classes.margin5}>
-                        <i className={"fab fa-github"} />
+                      <Button onClick={() => this.openLink(gitHub)} justIcon link className={classes.margin5}>
+                        <i style={iconBlue} className={"fab fa-github"} />
                       </Button>
-                      <Button justIcon link className={classes.margin5}>
-                        <i className={"fab fa-medium"} />
+                      <Button onClick={() => this.openLink(medium)} justIcon link className={classes.margin5}>
+                        <i style={iconBlue} className={"fab fa-medium"} />
                       </Button>
-                      <Button justIcon link className={classes.margin5}>
-                        <i className={"fab fa-twitter"} />
-                      </Button>
-                      <Button justIcon link className={classes.margin5}>
-                        <i className={"fab fa-youtube"} />
+                      <Button onClick={() => this.openLink(youTube)} justIcon link className={classes.margin5}>
+                        <i style={iconBlue} className={"fab fa-youtube"} />
                       </Button>
                     </div>
                   </div>
@@ -106,127 +172,85 @@ class ProfilePage extends React.Component {
                   experiences. I have found working on collaborative projects extremely rewarding, and love seeing ideas from different perspectives come together, to build creative unique applications.{" "}
                 </p>
               </div>
-              <div style={centerStack} >
-                <GridContainer justify="center">
-                  <GridItem xs={12} sm={12} md={6}> 
-                      <img style={imgStyle} src="https://img.icons8.com/color/48/000000/javascript.png" />
-                      <img style={imgStyle} src="https://img.icons8.com/color/48/000000/nodejs.png" />
-                      <img style={imgStyle} src="https://img.icons8.com/ios/50/000000/react-native-filled.png" />
-                      <img style={imgStyle} src="https://img.icons8.com/office/80/000000/ruby-programming-language.png" />
-                      <img style={imgStyle} src={rails} />
-                      <img style={imgStyle} src={htmlFive} />
-                      <img style={imgStyle} src={cssThree} />                 
-                  </GridItem>
-                </GridContainer>
+              <div onMouseOut={() => this.setState({ onMouseOver: false })}>
+   
+                <div style={centerStack} onMouseOver={() => this.setState({ onMouseOver: true })} > 
+                    <h6>Current Stack</h6>
+                  <GridContainer justify="center">
+                    <GridItem xs={12} sm={12} md={6}> 
+                        <img style={imgStyle} src="https://img.icons8.com/color/48/000000/javascript.png" />
+                        <img style={imgStyle} src="https://img.icons8.com/color/48/000000/nodejs.png" />
+                        <img style={imgStyle} src="https://img.icons8.com/ios/50/000000/react-native-filled.png" />
+                        <img style={imgStyle} src="https://img.icons8.com/office/80/000000/ruby-programming-language.png" />
+                        <img style={imgStyle} src={rails} />
+                        <img style={imgStyle} src={htmlFive} />
+                        <img style={imgStyle} src={cssThree} />                 
+                    </GridItem>
+                  </GridContainer>
+                  {this.state.onMouseOver &&
+                    <div>
+                      <p>HTML5/CSS3, JavaScript, Node.JS, React, Redux, Express, Ruby, Ruby on Rails</p>
+                    </div>}
+
+              </div>
+                <div style={{ cursor: "pointer"}} onClick={() => this.openLink("https://flatironschool.com")}className={classes.description}>
+                      <h6><b style={{ color: "blue" }}>//</b> Flatiron School Full Stack Developer Graduate</h6>
+                  </div>
               </div>
               <GridContainer justify="center">
                 <GridItem xs={12} sm={12} md={8} className={classes.navWrapper}>
                   <NavPills
                     alignCenter
-                    color="primary"
+                    color="rose"
                     tabs={[
                       {
-                        tabButton: "Studio",
-                        tabIcon: Camera,
+                        tabButton: "Portfolio",
+                        tabIcon: Code,
                         tabContent: (
-                          <GridContainer justify="center">
-                            <GridItem xs={12} sm={12} md={4}>
-                              <img
-                                alt="..."
-                                src={studio1}
-                                className={navImageClasses}
-                              />
-                              <img
-                                alt="..."
-                                src={studio2}
-                                className={navImageClasses}
-                              />
-                            </GridItem>
-                            <GridItem xs={12} sm={12} md={4}>
-                              <img
-                                alt="..."
-                                src={studio5}
-                                className={navImageClasses}
-                              />
-                              <img
-                                alt="..."
-                                src={studio4}
-                                className={navImageClasses}
-                              />
-                            </GridItem>
-                          </GridContainer>
+
+                            <GridContainer justify="center">
+                           
+                              <Carousel />
+                        
+                            </GridContainer>
                         )
                       },
                       {
-                        tabButton: "Work",
-                        tabIcon: Palette,
+                        tabButton: "Recent Blog's",
+                        tabIcon: textsms,
                         tabContent: (
+
+                          <div style={{padding: "5px;"}}>
                           <GridContainer justify="center">
-                            <GridItem xs={12} sm={12} md={4}>
-                              <img
-                                alt="..."
-                                src={work1}
-                                className={navImageClasses}
-                              />
-                              <img
-                                alt="..."
-                                src={work2}
-                                className={navImageClasses}
-                              />
-                              <img
-                                alt="..."
-                                src={work3}
-                                className={navImageClasses}
-                              />
-                            </GridItem>
-                            <GridItem xs={12} sm={12} md={4}>
-                              <img
-                                alt="..."
-                                src={work4}
-                                className={navImageClasses}
-                              />
-                              <img
-                                alt="..."
-                                src={work5}
-                                className={navImageClasses}
-                              />
-                            </GridItem>
+                            <Grid item xs={12}>
+                              <Grid container className={classes.demo} justify="center" spacing={Number(spacing)}>
+                                  {blogData.map( (blog, key) => (
+                                  <Grid key={key} item>
+                                    <BlogCard blog={blog}/>
+                                  </Grid>
+                                ))}
+                              </Grid>
+                            </Grid>        
                           </GridContainer>
+                          </div>
                         )
                       },
                       {
-                        tabButton: "Favorite",
-                        tabIcon: Favorite,
+                        tabButton: "Contact Me",
+                        tabIcon: ContactMail,
                         tabContent: (
                           <GridContainer justify="center">
-                            <GridItem xs={12} sm={12} md={4}>
-                              <img
-                                alt="..."
-                                src={work4}
-                                className={navImageClasses}
-                              />
-                              <img
-                                alt="..."
-                                src={studio3}
-                                className={navImageClasses}
-                              />
-                            </GridItem>
-                            <GridItem xs={12} sm={12} md={4}>
-                              <img
-                                alt="..."
-                                src={work2}
-                                className={navImageClasses}
-                              />
-                              <img
-                                alt="..."
-                                src={work1}
-                                className={navImageClasses}
-                              />
-                              <img
-                                alt="..."
-                                src={studio1}
-                                className={navImageClasses}
-                              />
+                            <GridItem xs={12}>
+                 
+                              <i style={emailStyle} class="material-icons">
+                                email
+                              </i><h6 style={{paddingLeft: "2%"}}>Steves0089@gmail.com</h6>
+                              <br></br>
+                              <i style={emailStyle} class="material-icons">
+                                phone
+                              </i><h6>07541884367</h6>
+                            
+
                             </GridItem>
                           </GridContainer>
                         )
