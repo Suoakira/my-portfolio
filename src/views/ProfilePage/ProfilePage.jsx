@@ -208,9 +208,9 @@ class ProfilePage extends React.Component {
                         tabIcon: Code,
                         tabContent: (
                           <GridContainer justify="center">
-           
+                            <GridItem>
                               <Carousel classes={classes} />
-          
+                            </GridItem>
                           </GridContainer>
                   
                         )
