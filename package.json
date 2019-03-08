@@ -22,7 +22,10 @@
     "react-scripts": "2.1.5",
     "react-slick": "0.23.2",
     "react-social-login-buttons": "^2.3.0",
-    "react-swipeable-views": "0.13.1"
+    "react-swipeable-views": "0.13.1",
+    "@bower_components/almond": "jrburke/almond#~0.2.9",
+    "@bower_components/angular": "angular/bower-angular#^1.0.8",
+    "@bower_components/d3": "mbostock-bower/d3-bower#~3.3.10"
   },
   "devDependencies": {
     "@babel/cli": "7.2.3",
