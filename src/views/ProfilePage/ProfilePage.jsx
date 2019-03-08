@@ -207,15 +207,12 @@ class ProfilePage extends React.Component {
                         tabButton: "Portfolio",
                         tabIcon: Code,
                         tabContent: (
-
-                            <GridContainer justify="center">
-                                <div className="test">
-                              <Carousel />
-                                </div>
-                                
-
-                        
-                            </GridContainer>
+                          <GridContainer justify="center">
+                            <GridItem xs={12}>
+                              <Carousel classes={classes} />
+                            </GridItem>
+                          </GridContainer>
+                  
                         )
                       },
                       {
