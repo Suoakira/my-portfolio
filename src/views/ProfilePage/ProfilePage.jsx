@@ -210,7 +210,7 @@ class ProfilePage extends React.Component {
 
                             <GridContainer justify="center">
                                 <div className="test">
-                                  <Carousel />
+                              <Carousel />
                                 </div>
                                 
 
