@@ -216,7 +216,7 @@ class ProfilePage extends React.Component {
                         )
                       },
                       {
-                        tabButton: "Recent Blog's",
+                        tabButton: "Recent Blogs",
                         tabIcon: textsms,
                         tabContent: (
 
