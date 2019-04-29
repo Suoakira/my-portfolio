@@ -251,7 +251,7 @@ class ProfilePage extends React.Component {
                               <br></br>
                               <i style={emailStyle} class="material-icons">
                                 phone
-                              </i><h6>07541884367</h6>
+                              </i><h6>Hidden Please use Email</h6>
                             
 
                             </GridItem>
