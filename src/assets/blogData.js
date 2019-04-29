@@ -8,7 +8,7 @@ export default [
     {
         title: "Ruby Object Oriented Programming. Relationship Models",
         imgUrl: "https://images.unsplash.com/photo-1489389944381-3471b5b30f04?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60",
-        link: "https://medium.com/@steves0089/ruby-object-oriented-programming-relationship-models-2d35f71c80fe"    
+        link: "https://medium.com/@steves0089/ruby-object-oriented-programming-relationship-models-2d35f71c80fe"
 
     },
     {
@@ -26,7 +26,16 @@ export default [
         title: "Getting your head around Callbacks",
         imgUrl: "https://images.unsplash.com/photo-1499673610122-01c7122c5dcb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60",
         link: "https://medium.com/@steves0089/intro-to-callback-functions-7d75ddae522"
-
+    },
+    {
+        title: "Understanding Redux",
+        imgUrl: "https://images.pexels.com/photos/69432/pexels-photo-69432.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+        link: "https://medium.com/@steves0089/so-when-i-was-first-learning-react-i-have-to-say-the-learning-curve-wasnt-to-steep-at-all-and-i-f3209c7613b8"
+    },
+    {
+        title: "What is Webpack? (High-Level-Overview)",
+        imgUrl: "https://images.pexels.com/photos/577560/pexels-photo-577560.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+        link: "https://medium.com/@steves0089/what-is-webpack-high-level-overview-6e0733b3208e"
     }
 ]
 

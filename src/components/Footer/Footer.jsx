@@ -37,7 +37,7 @@ function Footer({ ...props }) {
             </ListItem>
             <ListItem className={classes.inlineBlock}>
               <a
-                href="https://github.com/suoarik"
+                href="https://github.com/suoakira"
                 className={classes.block}
                 target="_blank"
               >
