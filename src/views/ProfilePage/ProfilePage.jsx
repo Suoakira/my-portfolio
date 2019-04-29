@@ -182,8 +182,8 @@ class ProfilePage extends React.Component {
                         <img style={imgStyle} src="https://img.icons8.com/color/48/000000/nodejs.png" />
                         <img style={imgStyle} src="https://img.icons8.com/ios/50/000000/react-native-filled.png" />
                         <img style={imgStyle} src="https://vuejs.org/images/logo.png" />
-                        <img style={imgStyle} src="https://img.icons8.com/office/80/000000/ruby-programming-language.png" />
                       <img style={imgStyle} src="https://user-images.githubusercontent.com/7110136/29002857-9e802f08-7ab4-11e7-9c31-604b5d0d0c19.png" />
+                      <img style={imgStyle} src="https://img.icons8.com/office/80/000000/ruby-programming-language.png" />
                         <img style={imgStyle} src={rails} />
 
                         <img style={imgStyle} src={htmlFive} />
