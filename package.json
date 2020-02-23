@@ -7,6 +7,8 @@
   "dependencies": {
     "@material-ui/core": "3.9.2",
     "@material-ui/icons": "3.0.2",
+    "browserslist": "^4.8.7",
+    "caniuse-lite": "^1.0.30001028",
     "classnames": "2.2.6",
     "devicon": "^2.0.0",
     "formsy-react": "^1.1.5",

@@ -28,11 +28,6 @@ export default [
         link: "https://medium.com/@steves0089/intro-to-callback-functions-7d75ddae522"
     },
     {
-        title: "Understanding Redux",
-        imgUrl: "https://images.pexels.com/photos/69432/pexels-photo-69432.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-        link: "https://medium.com/@steves0089/so-when-i-was-first-learning-react-i-have-to-say-the-learning-curve-wasnt-to-steep-at-all-and-i-f3209c7613b8"
-    },
-    {
         title: "What is Webpack? (High-Level-Overview)",
         imgUrl: "https://images.pexels.com/photos/577560/pexels-photo-577560.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
         link: "https://medium.com/@steves0089/what-is-webpack-high-level-overview-6e0733b3208e"

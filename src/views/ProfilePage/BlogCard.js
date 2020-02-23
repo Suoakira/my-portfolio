@@ -30,16 +30,16 @@ const buttonStyle = {
 function MediaCard(props) {
   const { classes, blog } = props;
   return (
+
       <Card className={classes.card} onClick={() => window.open(blog.link, "_blank") } >
       <CardActionArea>
         <CardMedia
           className={classes.media}
           image={blog.imgUrl}
-
         />
               
         <CardContent>
-                  <div style={buttonStyle}>
+            <div style={buttonStyle}>
             <h6>{blog.title}</h6>
             </div>
        
@@ -47,9 +47,6 @@ function MediaCard(props) {
         </CardContent>
         
       </CardActionArea>
-
-          
-
 
     </Card>
   );

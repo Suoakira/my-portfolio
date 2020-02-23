@@ -10,9 +10,9 @@ import GridContainer from "components/Grid/GridContainer.jsx";
 import GridItem from "components/Grid/GridItem.jsx";
 import Card from "components/Card/Card.jsx";
 import carouselStyle from "assets/jss/material-kit-react/views/componentsSections/carouselStyle.jsx";
-import image1 from "assets/img/kis.png"
-import image2 from "assets/img/woe.png"
-import image3 from "assets/img/js.png"
+import image1 from "assets/img/ps.png"
+import image2 from "assets/img/plugin.png"
+import image3 from "assets/img/kis.png"
 import { GithubLoginButton } from "react-social-login-buttons"
 
 
@@ -35,6 +35,11 @@ const woeGh = "https://github.com/joarnie/mod-4-trivia-game"
 const jsDemo = "https://www.youtube.com/watch?v=f2BmaNaXvgY"
 const jsFe = "https://github.com/Suoakira/javastyles-front-end"
 const jsBe = "https://github.com/Suoakira/javastyles_api"
+
+const githubAdobeFS = "https://github.com/Suoakira/file-browser"
+const youtubeAdobeFS = "https://www.youtube.com/watch?v=Pz4lXeto7rI&feature=youtu.be"
+
+const youtubeAdobeAE = "https://www.youtube.com/watch?v=fCi359LrNe0&feature=youtu.be"
 
 class SectionCarousel extends React.Component {
 
@@ -74,9 +79,61 @@ class SectionCarousel extends React.Component {
             <GridItem xs={12} sm={12} md={8} xs={12} className={classes.marginAuto}>
               <Card carousel>
                 <Carousel {...settings} >
+
                   <div>
                     <img
                       src={image1}
+                      style={dimImg}
+                      alt="First slide"
+                      className="slick-image"
+                    />
+                    <div className="slick-caption">
+                      <h6>
+                        <b>ADOBE Photoshop - Asset Manager</b>
+                      </h6>
+                      <Button onClick={() => this.openLink(youtubeAdobeFS)}>
+                        <div style={buttonStyle}>
+                          <i className={"fab fa-youtube"} /> Video Demo
+                        </div>
+                      </Button>
+                      <Button onClick={() => this.openLink(githubAdobeFS)}>
+                        <div style={buttonStyle}>
+                          <i className={"fab fa-github"} /> Github
+                        </div>
+                      </Button>
+                      <h6><b>Vue/Vuex, node.js</b></h6>
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <img
+                      src={image2}
+                      style={dimImg}
+                      alt="First slide"
+                      className="slick-image"
+                    />
+                    <div className="slick-caption">
+                      <h6>
+                        <b>ADOBE Aftereffects - Plugin</b>
+                      </h6>
+                      <Button onClick={() => this.openLink(youtubeAdobeAE)}>
+                        <div style={buttonStyle}>
+                          <i className={"fab fa-youtube"} /> Video Demo
+                        </div>
+                      </Button>
+                      <Button onClick={() => this.openLink("https://gitlab.com/Suoakira")}>
+                        <div style={buttonStyle}>
+                          <i className={"fab fa-github"} /> Gitlab
+                        </div>
+                      </Button>
+                      <h6><b>Vue/Vuex, node.js</b></h6>
+                    </div>
+                  </div>
+
+
+                  <div>
+                    <img
+                      src={image3}
                       style={dimImg}
                       alt="First slide"
                       className="slick-image"
@@ -103,64 +160,7 @@ class SectionCarousel extends React.Component {
                       <h6><b>JS/React, Ruby/Ruby on Rails, Semantic UI</b></h6>
                     </div>
                   </div>
-                
-                  <div>
-                    <img
-                      style={dimImg}
-                      src={image2}
-                      alt="Second slide"
-                      className="slick-image"
-                    />
-                    <div className="slick-caption">
-                      <h6>
-                        <b>Where on Earth - (trivia game)</b>
-                      </h6>
-                      <Button onClick={() => this.openLink(woeDemo)}>
-                        <div style={buttonStyle}>
-                          <i className={"fab fa-youtube"} /> Video Demo
-                        </div>
-                      </Button>
-                      <Button onClick={() => this.openLink(woeGh)}>
-                        <div style={buttonStyle}>
-                          <i className={"fab fa-github"} /> GitHub FE|BE
-                        </div>
-                      </Button>
-                      <h6><b>JS/React, Ruby/Ruby on Rails, Semantic UI</b></h6>
-                    </div>
-                  </div>
-      
-                  <div>
-                    <img
-                      src={image3}
-                      style={dimImg}
-                      alt="Third slide"
-                      className="slick-image"
-                    />
-                
-                      <div className="slick-caption">
-                        <h6>
-                          <b>JavaStyles - (design and outfit)</b>
-                        </h6>
-                      <Button onClick={() => this.openLink(jsDemo)}>
-                          <div style={buttonStyle}>
-                            <i className={"fab fa-youtube"} /> Video Demo
-                        </div>
-                        </Button>
-                      <Button onClick={() => this.openLink(jsFe)}>
-                          <div style={buttonStyle}>
-                            <i className={"fab fa-github"} /> Front-End
-                        </div>
-                        </Button>
-                      <Button onClick={() => this.openLink(jsBe)}>
-                          <div style={buttonStyle}>
-                            <i className={"fab fa-github"} /> Back-End
-                        </div>
-                        </Button>
-                        <h6><b>Vanilla JavaScript, Ruby/Ruby on Rails, Semantic UI</b></h6>
-                        </div>
-                      </div>
-      
-          
+    
                 </Carousel>
               </Card>
             </GridItem>
