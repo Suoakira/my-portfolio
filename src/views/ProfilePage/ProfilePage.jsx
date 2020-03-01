@@ -25,6 +25,7 @@ import htmlFive from "../../assets/img/html5.png"
 import cssThree from "../../assets/img/css3.png"
 
 import Carousel from "../Components/Sections/SectionCarousel"
+import stephen_hs from "../../assets/img/stephen_hs.png"
 //net
 // blog card blogdata
 import BlogCard from "./BlogCard.js"
@@ -46,8 +47,9 @@ import Grid from '@material-ui/core/Grid';
 import profilePageStyle from "assets/jss/material-kit-react/views/profilePage.jsx";
 
 // social media links
-const linkedIn = "www.linkedin.com/in/stephen-james-courtier"
+const linkedIn = "https://linkedin.com/in/stephen-james-courtier"
 const gitHub = "https://github.com/suoakira"
+const gitLab = "https://gitlab.com/suoakira"
 const medium = "https://medium.com/@steves0089"
 
 class ProfilePage extends React.Component {
@@ -111,8 +113,8 @@ class ProfilePage extends React.Component {
       width: "100%",
     }
 
-    const iconBlue = {
-      color: "#3A6588"
+    const iconOrange = {
+      color: "#f08080"
     }
 
     const emailStyle = {
@@ -149,19 +151,22 @@ class ProfilePage extends React.Component {
                 <GridItem xs={12} sm={12} md={6}>
                   <div className={classes.profile}>
                     <div>
-                      <img src={LongLink.longLink} alt="..." className={imageClasses} />
+                      <img src={stephen_hs} alt="..." className={imageClasses} />
                     </div>
                     <div className={classes.name}>
-                      <h3 className={classes.title}>Stephen Courtier</h3>
-                      <h6>Full Stack Software Engineer</h6>
-                      <Button onClick={() => this.openLink(gitHub)} justIcon link className={classes.margin5}>
-                        <i style={iconBlue} className={"fab fa-github"} />
+                      <h3 id="custom-color" className={classes.title}>Stephen Courtier</h3>
+                      <h6>Full Stack Web Developer</h6>
+                      <Button onClick={() => this.openLink(gitHub)} justIcon link className={classes.margin5} >
+                        <i style={iconOrange} className={"fab fa-github "} data-toggle="tooltip" data-placement="bottom" title="Github" />
                       </Button>
-                      <Button onClick={() => this.openLink(medium)} justIcon link className={classes.margin5}>
-                        <i style={iconBlue} className={"fab fa-medium"} />
+                      <Button onClick={() => this.openLink(gitLab)} justIcon link className={classes.margin5} data-toggle="tooltip1" data-placement="bottom" title="Gitlab">
+                        <i style={iconOrange} className={"fab fa-gitlab "} />
                       </Button>
-                      <Button onClick={() => this.openLink(linkedIn)} justIcon link className={classes.margin5}>
-                        <i style={iconBlue} className={"fab fa-linkedin"} />
+                      <Button onClick={() => this.openLink(medium)} justIcon link className={classes.margin5} data-toggle="tooltip2" data-placement="bottom" title="Medium">
+                        <i style={iconOrange} className={"fab fa-medium"} />
+                      </Button>
+                      <Button onClick={() => this.openLink(linkedIn)} justIcon link className={classes.margin5} data-toggle="tooltip3" data-placement="bottom" title="Linkedin">
+                        <i style={iconOrange} className={"fab fa-linkedin"} />
                       </Button>
                     </div>
                   </div>
@@ -169,12 +174,12 @@ class ProfilePage extends React.Component {
               </GridContainer>
               <div className={classes.description}>
                 <p>
-                  Full Stack Software Developer, with a track record of building beautifully designed applications from concept to release. Handling everything from security and design, to building native installers, and adding the final touch's that make it unique.
+                  Full Stack Web Developer, with a track record of building beautifully designed applications from concept to release. Handling everything from security and design, to building native installers, and adding the final touch's that make it unique.
+                    I have a front-end focus (Vue/React/CSS) but am just as eager to get stuck in with some back-end RESTful API design.{" "}
 
-                   .{" "}
                 </p>
 
-                <p>I have a front-end focus (Vue/React/CSS) but am just as eager to get stuck in with some back-end RESTful API design.</p>
+
               </div>
               <div onMouseOut={() => this.setState({ onMouseOver: false })}>
    
@@ -182,8 +187,8 @@ class ProfilePage extends React.Component {
                     <h6>Current Stack</h6>
                   <GridContainer justify="center">
                     <GridItem xs={12} sm={12} md={6}> 
-                        <img style={imgStyle} src="https://img.icons8.com/color/48/000000/javascript.png" />
-                        <img style={imgStyle} src="https://img.icons8.com/color/48/000000/nodejs.png" />
+                      <img style={imgStyle} src="https://img.icons8.com/color/48/000000/javascript.png" />
+                        <img data-toggle="tooltip" data-placement="bottom" title="Github"style={imgStyle} src="https://img.icons8.com/color/48/000000/nodejs.png" />
                         <img style={imgStyle} src="https://img.icons8.com/ios/50/000000/react-native-filled.png" />
                         <img style={imgStyle} src="https://vuejs.org/images/logo.png" />
                         <img style={imgStyle} src="https://user-images.githubusercontent.com/7110136/29002857-9e802f08-7ab4-11e7-9c31-604b5d0d0c19.png" />
@@ -193,14 +198,19 @@ class ProfilePage extends React.Component {
                         <img style={imgStyle} src={cssThree} />                 
                     </GridItem>
                   </GridContainer>
-                  {this.state.onMouseOver &&
-                    <div>
-                      <p>HTML5/CSS3, JavaScript, Node.JS, React, Redux,Vue.js, Vuex Express, Ruby, Ruby on Rails</p>
-                    </div>}
+
+
+                  <p style={{color: "#999" }}>JavaScript(ES3/ES6), Node.js, React/Redux, Vue/Vuex, Ruby, Rails, HTML5, CSS3</p>
+
 
               </div>
                 <div style={{ cursor: "pointer"}} onClick={() => this.openLink("https://flatironschool.com")}className={classes.description}>
                       <h6><b style={{ color: "blue" }}>//</b> Flatiron School Full Stack Developer Graduate</h6>
+                  <p>Full Stack Web Development (15 weeks)
+                  <br></br>
+                          React/Redux/Ruby/Ruby on Rails
+                  </p>
+
                   </div>
               </div>
               <GridContainer justify="center">

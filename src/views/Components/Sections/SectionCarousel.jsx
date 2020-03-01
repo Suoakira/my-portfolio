@@ -60,11 +60,11 @@ class SectionCarousel extends React.Component {
 
     const buttonStyle = { 
       color: "white", 
-      backgroundColor: "#e91d62", 
+      backgroundColor: "#f08080", 
       borderRadius: "4px", 
       textAlign: "center", 
       display: "table", 
-      padding: "2px" 
+      padding: "2px 8px" 
     }
 
     const dimImg = { 

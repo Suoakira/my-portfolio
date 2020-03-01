@@ -42,17 +42,17 @@ function HeaderLinks({ ...props }) {
       <ListItem className={classes.listItem}>
         <Tooltip
           id="instagram-twitter"
-          title="Watch my demos on Youtube"
+          title="Connect with me on Linkedin"
           placement={window.innerWidth > 959 ? "top" : "left"}
           classes={{ tooltip: classes.tooltip }}
         >
           <Button
             color="transparent"
-            href="https://www.youtube.com/channel/UCW5qleMnKYAmWO_Bc_z2Dkw"
+            href="https://linkedin.com/in/stephen-james-courtier/"
             target="_blank"
             className={classes.navLink}
           >
-            <i className={classes.socialIcons + " fab fa-youtube"} />
+            <i className={classes.socialIcons + " fab fa-linkedin"} />
           </Button>
         </Tooltip>
       </ListItem>

@@ -49,7 +49,7 @@ function Footer({ ...props }) {
         <div className={classes.right}>
 
           <a
-            href=""
+            href="https://linkedin.com/in/stephen-james-courtier/"
             className={classes.block}
             target="_blank"
           >
