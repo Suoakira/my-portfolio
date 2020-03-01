@@ -73,7 +73,7 @@ class SectionCarousel extends React.Component {
     }
     
     return (
-      <div className={classes.section}>
+      <div className={classes.section + "main-profile-caro"}>
         <div className={classes.container}>
           <GridContainer>
             <GridItem xs={12} sm={12} md={8} xs={12} className={classes.marginAuto}>

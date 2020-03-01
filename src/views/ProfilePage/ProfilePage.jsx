@@ -30,6 +30,7 @@ import Carousel from "../Components/Sections/SectionCarousel"
 import BlogCard from "./BlogCard.js"
 import blogData from "../../assets/blogData"
 import LongLink from "./longLink"
+import WorkHistory from "./WorkHistory"
 
 import InputAdornment from "@material-ui/core/InputAdornment";
 import Icon from "@material-ui/core/Icon";
@@ -221,7 +222,7 @@ class ProfilePage extends React.Component {
                         )
                       },
                       {
-                        tabButton: "Recent Blogs",
+                        tabButton: "Blogs",
                         tabIcon: textsms,
                         tabContent: (
 
@@ -231,7 +232,9 @@ class ProfilePage extends React.Component {
                               <Grid container className={classes.demo} justify="center" spacing={Number(spacing)}>
                                   {blogData.map( (blog, key) => (
                                   <Grid key={key} item>
+
                                     <BlogCard blog={blog}/>
+
                                   </Grid>
                                 ))}
                               </Grid>
@@ -241,16 +244,14 @@ class ProfilePage extends React.Component {
                         )
                       },
                       {
-                        tabButton: "Contact Me",
+                        tabButton: "Work History",
                         tabIcon: ContactMail,
                         tabContent: (
                           <GridContainer justify="center">
                             <GridItem xs={12}>
-                 
-                              <i style={emailStyle} class="material-icons">
-                                Email
-                              </i><h6 style={{paddingLeft: "2%"}}>Steves0089@gmail.com</h6>
-                              <br></br>
+
+                              <WorkHistory />
+
                             </GridItem>
                           </GridContainer>
                         )
