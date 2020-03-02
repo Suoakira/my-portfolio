@@ -250,3 +250,12 @@ form {
 
 
 }
+
+
+@media only screen and (min-width: 960px) {
+
+  .tooltips {
+
+    display: none;
+  }
+}
